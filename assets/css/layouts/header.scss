@@ -1,0 +1,234 @@
+@import "../includes";
+.header{
+	height: 50px;
+    width: 100%;
+    background: #A87824;
+    color: white;
+    line-height: 50px;
+    z-index: 10;
+    position: fixed;
+    z-index: 10;
+    .header-btn-cart, .header-btn-account, .header-btn-notifications{
+        float: right;
+    }
+    a{
+        cursor: pointer;
+        color: white;
+        text-decoration: none;
+        padding-right: 20px;
+        padding-left: 20px;
+        //float: right;
+        height: 50px;
+        &:hover {
+            //background: #327eb1 !important;
+            color: yellow !important;
+        }
+    } 
+    .left {
+        width: auto;
+        position: absolute;
+        padding-left: 20px;
+        letter-spacing: 4px;
+        font-size: 20px;
+    }
+    .right{
+    	float: right;
+        height: 100%;
+        width: auto;
+        ul {
+	        list-style: none;
+	        li {
+	        	float: right;
+	        }
+	    }
+
+        .header-dropdown-account{
+            @include headerDropdown(auto);
+            ul {
+                li {
+                    float: none;
+                }
+            }
+        }
+
+        .header-btn-cart{
+            .span-cart-total-product{
+                background: red;
+                padding: 0.2em 0.3em 0.3em;
+                font-size: 10px;
+                border-radius: 2px;
+            }
+        }
+        .header-dropdown-cart{
+            @include headerDropdown2(100vh, 370px, 0px, white);
+
+            .btn-edit-my-order{
+                top: 10px;
+                float: right;
+                position: relative;
+            }
+
+            .bold-title{
+                color: #7d7d7d;
+                font-weight: 600;
+                font-size: 20px;
+            }
+
+            .cart-content{
+                height: 50%;
+                overflow-x: hidden;
+                overflow-y: auto;
+                .cart-product{
+                    line-height: 20px;
+                    font-size: 13px;
+                    font-size: 15px !important;
+                    color: #333;
+                    margin-bottom: 10px;
+                    img{
+                        height: 60px;
+                        width: 60px;
+                        border-radius: 5px;
+                    }
+                    button{
+                        border: none;
+                        background: none;
+                        font-weight: 600;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+        .header-btn-notifications{
+            .span-total-notif{
+                background: red;
+                padding: 0.3em 0.3em 0.3em;
+                font-size: 10px;
+                border-radius: 2px;
+            }
+        }
+
+
+        .header-dropdown-notifications{
+            @include headerDropdown2(70%, 465px, 100px, white);
+            a{
+                color: #007bff;
+                padding: 0;
+                &:hover{
+                    color: #007bff !important;
+                    text-decoration: underline;
+                }
+            }
+            .bold-title{
+                color: #7d7d7d;
+                font-weight: 500;
+                font-size: 16px;
+            }
+            .notification-content{
+                .notification-content-body{
+                    img{
+                        height: 60px;
+                        width: 60px;
+                        border-radius: 5px;
+                    }
+                    .date{
+                        font-size: 12px;
+                        font-style: italic;
+                    }
+                    .description{
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.side-navbar-container{
+    display: none;
+    width: auto;
+    min-width: 300px;
+    position: fixed;
+    z-index: 250;
+    height: 100vh;
+    padding-right: 30px;
+    //left: -270px;
+    
+    .side-navbar-content{
+        background: white;
+        height: 100vh;
+        min-width: 200px;
+        width: auto;
+        // padding: 0px 5px;
+        padding-bottom: 20px;
+        // height: 100vh;
+        // background: white;
+        // width: auto;
+        // z-index: 200;
+        // position: fixed;
+        // min-width: 250px;
+        box-shadow: 0px 0px 10px 0px rgba(40,40,40,0.75);
+        overflow-x: hidden;
+        overflow-y: auto;
+        &::-webkit-scrollbar-thumb {
+            background-color: #bdbdbd;    /* color of the scroll thumb */
+            border-radius: 0px;       /* roundness of the scroll thumb */
+            border: 3px solid #bdbdbd;  /* creates padding around scroll thumb */
+        }
+        &::-webkit-scrollbar-track {
+            background: white;        /* color of the tracking area */
+        }
+        &::-webkit-scrollbar {
+            width: 9px;               /* width of the entire scrollbar */
+        }
+        .side-navbar-header{
+            display: flex;
+            justify-content: center;
+            img{
+                width: 150px;
+                height: 150px;
+            }
+        }
+        .side-navbar-body{
+            button, a{
+                &:focus {
+                    outline: 0 !important;
+                    box-shadow: none;
+                }
+                &:hover{
+                    text-decoration: none;
+                }
+                width: 100%;
+                text-align: justify;
+                padding: 5px 10px;
+                border: none;
+                background: white;
+                color: #4D4D4E;
+                .caret{
+                    float: right;
+                    line-height: 25px;
+                }
+            }
+            .sub-buttons{
+                display: none;
+                margin-left: 20px;
+                line-height: 37px;
+            }
+        }
+    }
+}
+
+.btn-toggle-menu{
+    position: absolute;
+    top: 11px;
+    border: 1px solid lightgrey;
+    font-size: 14px;
+    background: white;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.20);
+    &:focus {
+        outline: 0 !important;
+        //box-shadow: none;
+    }
+}
